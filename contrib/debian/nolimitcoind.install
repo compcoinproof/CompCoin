@@ -1,0 +1,2 @@
+debian/bin/CompCoind usr/bin
+src/CompCoind usr/lib/CompCoin

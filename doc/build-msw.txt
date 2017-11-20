@@ -1,0 +1,122 @@
+Copyright (c) 2009-2016 Bitcoin Developers
+Distributed under the MIT/X11 software license, see the accompanying
+file license.txt or http://www.opensource.org/licenses/mit-license.php.
+This product includes software developed by the OpenSSL Project for use in
+the OpenSSL Toolkit (http://www.openssl.org/).  This product includes
+cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP
+software written by Thomas Bernard.
+
+
+See readme-qt.rst for instructions on building CompCoin QT, the
+graphical user interface.
+
+WINDOWS BUILD NOTES
+===================
+
+Compilers Supported
+-------------------
+TODO: What works?
+Note: releases are cross-compiled using mingw running on Linux.
+
+
+Dependencies
+------------
+Libraries you need to download separately and build:
+
+                default path               download
+OpenSSL         \openssl-1.0.1p        http://www.openssl.org/source/
+Berkeley DB     \db-4.8.30.NC          http://www.oracle.com/technology/software/products/berkeley-db/index.html
+Boost           \boost-1.55.0          http://www.boost.org/users/download/
+miniupnpc       \miniupnpc-1.6         http://miniupnp.tuxfamily.org/files/
+
+Their licenses:
+OpenSSL        Old BSD license with the problematic advertising requirement
+Berkeley DB    New BSD license with additional requirement that linked software must be free open source
+Boost          MIT-like license
+miniupnpc      New (3-clause) BSD license
+
+Versions used in this release:
+OpenSSL      1.0.1p
+Berkeley DB  4.8.30.NC
+Boost        1.55.0
+miniupnpc    1.6
+
+
+OpenSSL
+-------
+MSYS shell:
+un-tar sources with MSYS 'tar xfz' to avoid issue with symlinks (OpenSSL ticket 2377)
+change 'MAKE' env. variable from 'C:\MinGW32\bin\mingw32-make.exe' to '/c/MinGW32/bin/mingw32-make.exe'
+
+cd /c/openssl-1.0.1p
+./config
+make
+
+Berkeley DB
+-----------
+MSYS shell:
+cd /c/db-4.8.30.NC/build_unix
+sh ../dist/configure --enable-mingw --enable-cxx
+make
+
+Boost
+-----
+DOS prompt:
+downloaded boost jam 3.1.18
+cd \boost-1.55.0
+bjam toolset=gcc --build-type=complete stage
+
+MiniUPnPc
+---------
+UPnP support is optional, make with USE_UPNP= to disable it.
+
+MSYS shell:
+cd /c/miniupnpc-1.6
+make -f Makefile.mingw
+mkdir miniupnpc
+cp *.h miniupnpc/
+
+CompCoin
+-------
+DOS prompt:
+cd \CompCoin\src
+mingw32-make -f makefile.mingw
+strip CompCoind.exe
+
+
+# Build leveldb in src
+In msys shell:
+$ cd CompCoin-Core/src/leveldb
+$ TARGET_OS=NATIVE_WINDOWS make libleveldb.a libmemenv.a
+
+
+# Building Static Qt Wallet for Windows
+1. Download Qt source (built successfully with 4.8.5)
+2. Build QT
+	$ configure -release -opensource -confirm-license -static -no-sql-sqlite -qt-zlib -no-gif -qt-libpng -qt-libjpeg -no-vcproj -no-openssl -no-dbus -no-audio-backend -nomake examples -nomake examples -nomake tests -opengl desktop
+	$ mingw32-make -j 4
+3. Open CMD (replace path of qt arc according to your directory)
+	$ set PATH=%PATH%;C:\Qt\src\qt-src-4.8.5\bin
+	$ qmake CompCoin-qt.pro
+	# add "USE_UPNP=-" after qmake to build without Universal Plug N Play
+	$ mingw32-make -j 4 -f Makefile.Release
+	# 4 is the number of cores on the machine. Use this for optimal uage of CPU, otherwise -j option can be skipped
+
+References:
+
+How to build a Windows Qt Wallet For Any Coin Yourself From Source Code - Step by Step Instructions
+https://cryptocurrencytalk.com/topic/13204-how-to-build-a-windows-qt-wallet-for-any-coin-yourself-from-source-code-step-by-step-instructions/
+
+Building headless Bitcoin and Bitcoin-qt on Windows
+https://bitcointalk.org/index.php?topic=149479.msg1587734#msg1587734
+
+### Troubleshoot #####
+
+Error: Boost Libraries Issue
+# cannot find -lboost_chrono-mgw48-mt-s-1_55
+Reference: https://bitcointalk.org/index.php?topic=149479.750;wap
+
+Error: Miniupnpc error
+# undefined reference to `_imp__UPNP_GetValidIGD'
+Reference: https://fireproxy.crushus.com/bitcointalk.org/index.php?topic=149479.msg9218702
+

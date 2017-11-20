@@ -1,0 +1,78 @@
+Copyright (c) 2009-2016 Bitcoin Developers
+Distributed under the MIT/X11 software license, see the accompanying file
+license.txt or http://www.opensource.org/licenses/mit-license.php.  This
+product includes software developed by the OpenSSL Project for use in the
+OpenSSL Toolkit (http://www.openssl.org/).  This product includes cryptographic
+software written by Eric Young (eay@cryptsoft.com) and UPnP software written by
+Thomas Bernard.
+
+
+Mac OS X CompCoind build instructions
+Laszlo Hanyecz <solar@heliacal.net>
+Douglas Huff <dhuff@jrbobdobbs.org>
+
+
+See readme-qt.rst for instructions on building CompCoin QT, the
+graphical user interface.
+
+Tested on 10.5 and 10.6 intel.  PPC is not supported because it's big-endian.
+
+All of the commands should be executed in Terminal.app.. it's in
+/Applications/Utilities
+
+You need to install XCode with all the options checked so that the compiler and
+everything is available in /usr not just /Developer I think it comes on the DVD
+but you can get the current version from http://developer.apple.com
+
+
+1.  Clone the github tree to get the source code:
+
+git clone git@github.com:rat4/CompCoin.git CompCoin
+
+2.  Download and install MacPorts from http://www.macports.org/
+
+2a. (for 10.7 Lion)
+    Edit /opt/local/etc/macports/macports.conf and uncomment "build_arch i386"
+
+3.  Install dependencies from MacPorts
+
+sudo port install boost db48 openssl miniupnpc
+
+Optionally install qrencode (and set USE_QRCODE=1):
+sudo port install qrencode
+
+4.  Now you should be able to build CompCoind:
+
+cd CompCoin/src
+make -f makefile.osx
+
+Run:
+  ./CompCoind --help  # for a list of command-line options.
+Run
+  ./CompCoind -daemon # to start the CompCoin daemon.
+Run
+  ./CompCoind help # When the daemon is running, to get a list of RPC commands
+
+
+Static Builds
+-------------
+
+./configure -release -opensource -confirm-license -static -no-sql-sqlite -no-opengl -qt-zlib -no-gif -qt-libpng -qt-libjpeg -no-openssl -no-dbus -no-audio-backend -nomake examples
+
+
+Troubleshooting
+---------------
+
+ld: symbol(s) not found for architecture x86_64 
+* Uninstall boost from macports 
+* Install boost from homebrew
+
+
+find /usr -name "boost"
+
+
+Statically build wallet
+./macdeployqt ~/nlc/Nolimitcoin-Blockchain/release/CompCoin-Qt.app -dmg
+https://dragly.org/2012/01/13/deploy-qt-applications-for-mac-os-x/
+
+

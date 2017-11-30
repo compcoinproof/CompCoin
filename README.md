@@ -53,7 +53,7 @@ Dependencies
 
  Library     Purpose           Description
  -------     -------           -----------
- libssl      SSL Support       Secure communications
+ libssl1.0-dev     SSL Support       Secure communications
  libdb       Berkeley DB       Blockchain & wallet storage
  libboost    Boost             C++ Library
  miniupnpc   UPnP Support      Optional firewall-jumping support

@@ -40,10 +40,9 @@ maxconnections=256
 To compile for Linux:
 
 sudo add-apt-repository ppa:bitcoin/bitcoin
-
 sudo apt-get update
-
-sudo apt-get install libdb-dev libdb++-dev build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils git libboost-all-dev libminiupnpc-dev libqt5gui5 libqt5core5a libqt5webkit5-dev libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev
- 
-git clone https://github.com/compcoinproof/CompCoin && cd CompCoin && ./autogen.sh && ./configure && make
+sudo apt-get install qt4-qmake libqt4-dev
+git clone https://github.com/compcoinproof/CompCoin.git
+cd CompCoin
+sudo qmake CompCoin-qt.pro
 ```

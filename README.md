@@ -41,11 +41,14 @@ UNIX BUILD NOTES
 
 To Build
 --------
+```
 sudo add-apt-repository ppa:bitcoin/bitcoin
-sudo apt install -y build-essential libssl1.0-dev libdb++-dev libboost-all-dev miniupnpc libqrencode-dev
-cd src/
+sudo apt install -y build-essential libssl1.0-dev libdb++-dev libboost-all-dev miniupnpc libqrencode-dev git
+git clone https://github.com/Gr1dd/CompCoin.git
+cd CompCoin
+cd src
 make -f makefile.unix            # Headless CompCoin
-
+```
 See readme-qt.rst for instructions on building CompCoin QT,
 the graphical CompCoin.
 
@@ -54,12 +57,13 @@ Dependencies
 
  Library     Purpose           Description
 ----------------------------------------------
+
 1. libssl1.0-dev     SSL Support       Secure communications
 2. libdb       Berkeley DB       Blockchain & wallet storage
 3. libboost    Boost             C++ Library
 4. miniupnpc   UPnP Support      Optional firewall-jumping support
 5. libqrencode QRCode generation Optional QRCode generation
---------------------------------------
+
 
 #### To build with PIE, use:
 ###### ```make -f makefile.unix ... -e PIE=1```

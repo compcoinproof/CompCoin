@@ -52,6 +52,7 @@ make
 cd ..
 sudo chmod 777 leveldb/ -R
 make -f makefile.unix
+echo rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) | sudo tee --append test.conf
 sudo chmod 700 test.conf
 sudo ./CompCoind --conf=$PWD/test.conf
 ```

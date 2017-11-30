@@ -28,8 +28,8 @@ SCRIPT_ADDRESS_TEST = 126
 CompCoin.conf
 
 ```
-rpcuser=
-rpcpassword=
+rpcuser=CompCoinrpc
+rpcpassword=ISRANDOMLYGENERATED
 rpcallowip=127.0.0.1
 listen=1
 server=1

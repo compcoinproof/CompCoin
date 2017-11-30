@@ -47,8 +47,10 @@ sudo apt install -y build-essential libssl1.0.0 libdb++-dev libboost-all-dev min
 git clone https://github.com/Gr1dd/CompCoin.git
 cd CompCoin
 cd src
-sudo chmod 755 leveldb/ -R
-make -f makefile.unix            # Headless CompCoin
+cd leveldb
+make
+cd ..
+make -f makefile.unix
 ```
 See readme-qt.rst for instructions on building CompCoin QT,
 the graphical CompCoin.

@@ -41,7 +41,8 @@ UNIX BUILD NOTES
 
 To Build
 --------
-
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt install -y build-essential libssl1.0-dev libdb++-dev libboost-all-dev miniupnpc libqrencode-dev
 cd src/
 make -f makefile.unix            # Headless CompCoin
 
@@ -60,8 +61,6 @@ Dependencies
 5. libqrencode QRCode generation Optional QRCode generation
 --------------------------------------
 
-----------------------------------------------
-sudo apt-get install build-essential libssl-dev libdb++-dev libboost-all-dev libqrencode-dev
 #### To build with PIE, use:
 ###### ```make -f makefile.unix ... -e PIE=1```
 

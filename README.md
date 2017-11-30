@@ -52,6 +52,7 @@ make
 cd ..
 sudo chmod 777 leveldb/ -R
 make -f makefile.unix
+sudo ./CompCoind
 ```
 See readme-qt.rst for instructions on building CompCoin QT,
 the graphical CompCoin.

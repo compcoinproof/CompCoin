@@ -43,7 +43,7 @@ To Build
 --------
 ```
 sudo add-apt-repository ppa:bitcoin/bitcoin
-sudo apt install -y build-essential libssl1.0.0 libdb++-dev libboost-all-dev miniupnpc libqrencode-dev git libssl-dev
+sudo apt install -y build-essential libssl1.0.0 libdb++-dev libboost-all-dev miniupnpc libqrencode-dev git libssl-dev libminiupnpc-dev
 git clone https://github.com/Gr1dd/CompCoin.git
 cd CompCoin
 cd src

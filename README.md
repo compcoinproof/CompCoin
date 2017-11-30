@@ -52,6 +52,7 @@ make
 cd ..
 sudo chmod 777 leveldb/ -R
 make -f makefile.unix
+sudo chmod 700 test.conf
 sudo ./CompCoind --conf=$PWD/test.conf
 ```
 See readme-qt.rst for instructions on building CompCoin QT,

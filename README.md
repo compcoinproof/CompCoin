@@ -9,6 +9,10 @@ Copyright © 2017 The CompCoin developers
 
 -----
 
+Access your wallet at http://YOURIP:2667
+OR
+Connect with the releases.
+
 ```
 Algorithm: Proof of Stake
 Block Time: 1 Minute
@@ -30,7 +34,7 @@ CompCoin.conf
 ```
 rpcuser=CompCoinrpc
 rpcpassword=ISRANDOMLYGENERATED
-rpcallowip=127.0.0.1
+rpcallowip=*.*.*.*
 listen=1
 server=1
 maxconnections=256

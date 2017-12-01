@@ -9,8 +9,12 @@ Copyright © 2017 The CompCoin developers
 
 -----
 
-Access your wallet at http://YOURIP:2667
+Access your wallet at 
+
+http://YOURIP:2667
+
 OR
+
 Connect with the releases.
 
 ```
@@ -56,10 +60,25 @@ make
 cd ..
 sudo chmod 777 leveldb/ -R
 make -f makefile.unix
-echo rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) | sudo tee --append test.conf
+export PASS=rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) 
+echo $PASS | sudo tee --append test.conf
 sudo chmod 700 test.conf
 sudo ./CompCoind --conf=$PWD/test.conf
 ```
+
+Default username is: CompCoinrpc
+Default address is: http://YOURIPADDRESS:2667
+
+To get password:
+
+```
+docker exec CONTAINERNAME echo $PASS
+```
+OR IF NOT IN DOCKER!
+echo $PASS
+
+And you're good to go!
+
 See readme-qt.rst for instructions on building CompCoin QT,
 the graphical CompCoin.
 

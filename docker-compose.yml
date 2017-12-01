@@ -1,7 +1,0 @@
-compcoin:
- build: https://github.com/gr1dd/compcoin-docker.git
- ports:
-  - "2667:2667"
-  - "2667:2667/udp"
-  - "2668:2668"
-  - "2668:2668/udp"

@@ -67,6 +67,7 @@ sudo ./CompCoind --conf=$PWD/test.conf
 ```
 
 Default username is: CompCoinrpc
+
 Default address is: http://YOURIPADDRESS:2667
 
 To get password:
@@ -74,9 +75,12 @@ To get password:
 ```
 docker exec CONTAINERNAME echo $PASS
 ```
-OR IF NOT IN DOCKER!
-echo $PASS
 
+OR IF NOT IN DOCKER!
+
+```
+echo $PASS
+```
 And you're good to go!
 
 See readme-qt.rst for instructions on building CompCoin QT,

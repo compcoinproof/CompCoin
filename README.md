@@ -4,7 +4,7 @@
 
 Access your wallet at 
 
-http://YOURIP:2667
+http://YOURIP:2667 (RPC!!!!)
 
 OR
 
@@ -35,10 +35,19 @@ rpcallowip=*.*.*.*
 listen=1
 server=1
 maxconnections=256
+GEN=1
 ```
 
 UNIX BUILD NOTES
 ------------------------------------------
+##### Entrypoint Docker:
+
+Please see:
+
+https://github.com/Gr1dd/CompCoin-Docker
+
+##### Building from source:
+
 
 ```
 sudo add-apt-repository ppa:bitcoin/bitcoin
@@ -64,7 +73,7 @@ Default address is: http://YOURIPADDRESS:2667
 To get password:
 
 ```
-docker exec CONTAINERNAME echo $PASS
+sudo docker exec -it THECONTAINERNAME /bin/sh -c 'cat /CompCoin/src/test.conf'
 ```
 
 OR IF NOT IN DOCKER!
@@ -72,6 +81,7 @@ OR IF NOT IN DOCKER!
 ```
 echo $PASS
 ```
+
 And you're good to go!
 
 See readme-qt.rst for instructions on building CompCoin QT,
@@ -84,7 +94,7 @@ the graphical CompCoin.
 
 Making RPC transfers and command-line options for the DMG, EXE and DOCKER executable!!! SEE BELOW
 ------------------------------------------
-![CompCoin](instructions.png)
+![CompCoin](https://raw.githubusercontent.com/Gr1dd/CompCoin-Docker/master/instructions.png)
 
 
 Help commands for client:

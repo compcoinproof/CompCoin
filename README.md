@@ -63,7 +63,7 @@ make -f makefile.unix
 export PASS=rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) 
 echo $PASS | sudo tee --append test.conf
 sudo chmod 700 test.conf
-sudo ./CompCoind --conf=$PWD/test.conf
+sudo ./CompCoind -conf=$PWD/test.conf -seednode=fleabags.net -addnode=fleabags.net -dns -debug -debugnet -dnsseed -upnp
 ```
 
 Default username is: CompCoinrpc

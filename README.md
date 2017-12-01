@@ -1,13 +1,6 @@
-CompCoin (CMP)
-===================
-Distributed under the MIT/X11 software license.
+![CompCoin](https://compcoin.com/wp-content/uploads/2017/08/smallcoin-2.png)
 
-Copyright © 2009-2017 The Bitcoin developers
-Copyright © 2009-2017 The Peercoin developers
-Copyright © 2017 The CompCoin developers
-
-
------
+# CompCoin (CMP)
 
 Access your wallet at 
 
@@ -15,7 +8,7 @@ http://YOURIP:2667
 
 OR
 
-Connect with the releases.
+Connect with the releases through rpc (see below)
 
 ```
 Algorithm: Proof of Stake
@@ -45,10 +38,8 @@ maxconnections=256
 ```
 
 UNIX BUILD NOTES
-================
+------------------------------------------
 
-To Build
---------
 ```
 sudo add-apt-repository ppa:bitcoin/bitcoin
 sudo apt install -y build-essential libssl1.0.0 libdb++-dev libboost-all-dev miniupnpc libqrencode-dev git libssl-dev libminiupnpc-dev libleveldb-dev 
@@ -87,11 +78,18 @@ See readme-qt.rst for instructions on building CompCoin QT,
 the graphical CompCoin.
 
 #### To build with PIE, use:
-###### ```make -f makefile.unix ... -e PIE=1```
+
+```make -f makefile.unix ... -e PIE=1```
 
 
 Making RPC transfers and command-line options for the DMG, EXE and DOCKER executable!!! SEE BELOW
 ------------------------------------------
+![CompCoin](instructions.png)
+
+
+Help commands for client:
+------------------------------------------
+
 ```
 Options:
   -?                     This help message
@@ -170,3 +168,10 @@ UI options:
   -min                   Start minimized
   -splash                Show splash screen on startup (default: 1)
 ```
+
+Distributed under the MIT/X11 software license.
+------------------------------------------
+
+Copyright © 2009-2017 The Bitcoin developers
+Copyright © 2009-2017 The Peercoin developers
+Copyright © 2017 The CompCoin developers

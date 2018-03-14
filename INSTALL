@@ -1,9 +1,0 @@
-Building CompCoin
-
-See doc/readme-qt.rst for instructions on building CompCoin QT,
-the intended-for-end-users, nice-graphical-interface, reference
-implementation of CompCoin.
-
-See doc/build-*.txt for instructions on building CompCoind,
-the intended-for-services, no-graphical-interface, reference
-implementation of CompCoin.
